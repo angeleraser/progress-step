@@ -143,9 +143,7 @@ const progressStepper3 = new ProgressStepper({ steps: 3, root: container });
 const progressStepper4 = new ProgressStepper({ steps: 4, root: container });
 const progressStepper5 = new ProgressStepper({ steps: 5, root: container });
 
-progressStepper2.onChange(console.log);
-progressStepper3.onChange(console.log);
-progressStepper4.onChange(console.log);
-progressStepper5.onChange(console.log);
-
-console.log(progressStepper4);
+progressStepper2.onChange(() => void 0);
+progressStepper3.onChange(() => void 0);
+progressStepper4.onChange(() => void 0);
+progressStepper5.onChange(() => void 0);
