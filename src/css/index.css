@@ -1,0 +1,120 @@
+@import url("./nomalizer.min.css");
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+  --number-color: #fff;
+  --number-font-color: #999;
+  --progress-bar-width: 4px;
+  --progress-bar-number-size: calc(var(--progress-bar-width) * 10);
+  background-color: #f6f7fb;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.content {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px;
+}
+
+.content .progress-root {
+  margin-bottom: 140px;
+}
+
+.progress-root {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--progress-bar-number-size);
+  font-family: "Montserrat", sans-serif;
+}
+
+.progress-bar {
+  height: var(--progress-bar-width);
+  width: 100%;
+  background-color: var(--line-border-empty);
+  position: absolute;
+  width: 100%;
+}
+
+.progress-bar-fill {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  transition: 0.3s all;
+  width: 0%;
+  background-color: var(--line-border-fill);
+}
+
+.progress-steps {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 5;
+  align-items: center;
+}
+
+.progress-steps-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--progress-bar-number-size);
+  height: var(--progress-bar-number-size);
+  border-radius: 50%;
+  background-color: var(--number-color);
+  color: var(--number-font-color);
+  border-color: var(--line-border-empty);
+  border-width: var(--progress-bar-width);
+  border-style: solid;
+  transition: 0.3s all;
+  position: absolute;
+}
+
+.progress-steps-value.completed {
+  border-color: var(--line-border-fill);
+}
+
+.progress-steps-value:last-child {
+  right: calc(var(--progress-bar-number-size) * -0.5);
+}
+
+.progress-steps-value:first-child {
+  left: calc(var(--progress-bar-number-size) * -0.5);
+}
+
+.progress-root-actions {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  bottom: -150%;
+}
+
+.progress-root-actions .progress-action-btn {
+  background-color: var(--line-border-fill);
+  color: var(--number-color);
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  min-width: 80px;
+  transition: 0.3s all;
+}
+
+.progress-root-actions .progress-action-btn.disabled {
+  background-color: var(--number-font-color);
+  pointer-events: none;
+}
+
+.progress-action-btn:active {
+  scale: 0.97;
+}
